@@ -1,61 +1,87 @@
+best_pirate = "C:/Users/mathew_acosta/Downloads/Pirate2.wav"
+
 use_bpm 212
 use_synth :piano
+
+define :pirate do |n1, n2, n3 |
+  play n1
+  play n2
+  play n3
+  sleep 1
+end
+define :pirate2 do |n1, n2, n3|
+  play n1
+  play n2
+  play n3
+  sleep 0.5
+end
+define :pirate3 do |n1, n2|
+  play n1
+  play n2
+  sleep 0.5
+end
+define :pirate4 do |n1|
+  play n1
+  sleep 0.5
+end
+
+live_loop :KCIK do
+  17.times do
+    sample :drum_heavy_kick
+    sleep 0.5
+  end
+  stop
+end
+
+
+sleep 9
+
 live_loop :Hes_a_pirate do
-  play:d4
-  play:a3
-  play:f3
-  sleep 1
-  play:d4
-  play:a3
-  play:f3
-  sleep 1
-  play:d4
-  play:a4
-  play:f3
-  sleep 0.5
-  play:e4
-  play:c4
-  play:a3
-  sleep 0.5
+  7.times do
+    pirate :d4, :a3, :f3
+    pirate :d4, :a3, :f3
+    pirate2 :d4, :a4, :f3
+    pirate2 :e4, :c4, :a3
+    
+  end
+  stop
+end
+
+sleep 9
+
+live_loop :loop do
+  5.times do
+    sample :sn_zome
+    sleep 1
+  end
+  stop
+end
+
+sleep 10
+sample best_pirate, amp: 4
+sleep 9
+
+live_loop :Hes_a_pirate2 do
+  pirate :d4, :a3, :f3
+  pirate :d4, :a3, :f3
+  pirate2 :d4, :a4, :f3
+  pirate2 :e4, :c4, :a3
   #measure 1
-  play:f4
-  play:d4
-  play:bb3
-  sleep 1
-  play:f4
-  play:d4
-  play:bb3
-  sleep 1
-  play:f4
-  play:d4
-  play:bb3
-  sleep 0.5
-  play:bb4
-  play:d4
-  sleep 0.5
+  pirate :f4, :d4, :bb3
+  pirate :f4, :d4, :bb3
+  pirate2 :f4, :d4, :bb3
+  pirate3 :bb4, :d4
   #measure 2
-  play:e4
-  play:c3
-  play:a3
-  sleep 1
-  play:e4
-  play:c3
-  play:a3
-  sleep 1
-  play:d4
-  play:a3
-  sleep 0.5
-  play:c3
-  sleep 0.5
+  pirate :e4, :c3, :a3
+  pirate :e4, :c4, :a3
+  pirate3 :d4, :a3
+  pirate4 :c3
   #measure 3
-  play:c3
-  play:a3
-  sleep 0.5
+  pirate3 :c3, :a3
   play:d4
   play:a3
   sleep 1 #rest
-  play:a3
-  play:c3
-  sleep 0.5
+  pirate3 :a3, :c3
   #measure 4
 end
+
