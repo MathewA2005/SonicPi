@@ -1,0 +1,124 @@
+pyrates_beware = "C:/Users/mathew_acosta/Downloads/yt5s.com - Assassin's Creed IV Black Flag - Pyrates Beware (Track 02) (128 kbps).wav"
+background = "C:/Users/mathew_acosta/Downloads/yt5s.com - The Medallion Calls (128 kbps).wav"
+voices = "C:/Users/mathew_acosta/Downloads/yt5s.com - I'm Captain Jack Sparrow.... In english.. (128 kbps).wav"
+pyrates_beware_2 = "C:/Users/mathew_acosta/Downloads/yt5s.com - Assassin's Creed IV Black Flag - Pyrates Beware (Track 03) (128 kbps).wav"
+
+i=0
+use_bpm 96
+use_synth :piano
+
+define :pirate do |n1, n2, n3|
+  play n1
+  sleep 1.5
+  play n2
+  sleep 0.5
+  play n3
+  sleep 1
+end
+
+define :pirate2 do |n1, n2, n3|
+  play n1
+  sleep 1
+  play n2
+  sleep 1
+  play n3
+  sleep 1
+end
+
+define :pirate3 do |n1, n2, n3|
+  play n1
+  sleep 2
+  play n2
+  sleep 1
+  play n3
+  sleep 1
+end
+
+sample pyrates_beware
+sleep 91
+
+
+live_loop :It_calls do
+  1.times do
+    pirate :f4, :g4, :a4
+    #Measure 1
+    pirate2 :g4, :f4, :e4
+    #Measure 2
+    pirate2 :f4, :g4, :a4
+    #Measure 3
+    pirate3 :g4, :f4, :g4
+    #Measure 4
+    pirate :a4, :g4, :f4
+    #Measure 5
+    pirate2 :e4, :f4, :e4
+    #Measure 6
+  end
+  stop
+end
+
+live_loop :jack do
+  1.times do
+    sample voices, amp: 6
+    sleep 16
+  end
+  stop
+end
+
+live_loop :Background do
+  13.times do
+    sample background
+    sleep 9
+  end
+  stop
+end
+
+sleep 50
+
+live_loop :It_calls2 do
+  1.times do
+    pirate :f4, :g4, :a4
+    #Measure 1
+    pirate2 :g4, :f4, :e4
+    #Measure 2
+    pirate2 :f4, :g4, :a4
+    #Measure 3
+    pirate3 :g4, :f4, :g4
+    #Measure 4
+    pirate :a4, :g4, :f4
+    #Measure 5
+    pirate2 :e4, :f4, :e4
+    #Measure 6
+  end
+  stop
+end
+
+sleep 22
+sample pyrates_beware_2
+
+sleep 33
+live_loop :jack2 do
+  1.times do
+    sample voices, amp: 6
+    sleep 16
+  end
+  stop
+end
+
+sleep 16
+live_loop :It_calls3 do
+  1.times do
+    pirate :f4, :g4, :a4
+    #Measure 1
+    pirate2 :g4, :f4, :e4
+    #Measure 2
+    pirate2 :f4, :g4, :a4
+    #Measure 3
+    pirate3 :g4, :f4, :g4
+    #Measure 4
+    pirate :a4, :g4, :f4
+    #Measure 5
+    pirate2 :e4, :f4, :e4
+    #Measure 6
+  end
+  stop
+end
